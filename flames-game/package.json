@@ -1,0 +1,31 @@
+{
+  "name": "flames-game",
+  "version": "1.0.0",
+  "description": "A Flames game built with Vite, React, and TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "keywords": [
+    "flames",
+    "game",
+    "react",
+    "typescript",
+    "vite"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.0.0",
+    "@types/react": "^17.0.14",
+    "@types/react-dom": "^17.0.9",
+    "typescript": "^4.3.5",
+    "vite": "^2.3.8"
+  }
+}
