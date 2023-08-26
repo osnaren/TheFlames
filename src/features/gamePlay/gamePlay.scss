@@ -1,0 +1,142 @@
+.gamePlay__background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.7) scaleX(-1) rotate(2deg);
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  top: 5vh;
+  left: -20vw;
+}
+
+.gamePlay__container {
+  // width: 50vw;
+  height: 50vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  .gamePlay__input__container {
+    display: flex;
+    // width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    .arrows-animation {
+      position: absolute;
+      transform: scaleX(1) scale(0.6);
+      margin-top: 14.5vh;
+      margin-left: 10vw;
+    }
+
+    .person1__input {
+      margin-top: 13.2vh;
+      margin-left: 4vw;
+    }
+    .person2__input {
+      margin-top: 45.2vh;
+      margin-left: 20vw;
+    }
+
+    .gamePlay__input {
+      display: flex;
+      align-items: flex-end;
+      transform: rotate(353.5deg);
+      position: absolute;
+      .gamePlay__input__icon {
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
+        cursor: pointer;
+        z-index: 1;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .input__textField {
+        font-family: "QuickSand", sans-serif !important;
+        label {
+          color: #769cb6;
+          font-family: inherit !important;
+          font-weight: bold;
+        }
+        & .MuiInputBase-input {
+          padding: 2px 14px 0px 14px !important;
+          font-family: "Indie Flower" !important;
+          font-size: 30px;
+          font-weight: 300;
+          color: #58829e;
+        }
+
+        & .MuiInput-root:after {
+          border-bottom: 2px solid #769cb6 !important;
+        }
+        & .MuiInput-root:before {
+          border-bottom: 1px solid rgba(118, 156, 182, 0.64) !important;
+        }
+      }
+      .input_error {
+        label {
+          color: red !important;
+        }
+        & .MuiInput-root:after {
+          border-bottom: 2px solid red !important;
+        }
+      }
+    }
+
+    .gamePlay__input__vs,
+    .gamePlay__input__vs_error {
+      font-family: "Righteous" !important;
+      font-size: 14px;
+      font-weight: 300;
+      color: whitesmoke;
+      z-index: 1;
+      position: absolute;
+      margin-top: 29.6vh;
+      margin-left: 10vw;
+      transform: rotate(353.5deg);
+    }
+    .gamePlay__input__vs_error {
+      color: red;
+    }
+    .gamePlay__input__vs::after {
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-duration: 2s;
+      animation-name: blink;
+      content: "🤝🏻";
+      --emoji: "🤝🏻";
+      --emoji-1: "😍";
+      --emoji-2: "🤗";
+      --emoji-3: "💍";
+      --emoji-4: "😡";
+      --emoji-5: "😬";
+    }
+  }
+}
+
+@keyframes blink {
+  16.6% {
+    content: var(--emoji-1);
+  }
+  33.3% {
+    content: var(--emoji-2);
+  }
+  50% {
+    content: var(--emoji-3);
+  }
+  66.6% {
+    content: var(--emoji-4);
+  }
+  83.3% {
+    content: var(--emoji-5);
+  }
+  100% {
+    content: var(--emoji);
+  }
+}

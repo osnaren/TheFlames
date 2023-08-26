@@ -1,0 +1,126 @@
+.lobyMain__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f5f5f5;
+  background: #141e30;
+  overflow: hidden;
+  background: -webkit-linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+  background-image: linear-gradient(45deg, #30cfd0 0%, #330867 100%);
+  background-size: 400% 400%;
+  animation: gradient 6s ease-in infinite;
+  z-index: 1;
+  .lobyMain__header {
+    position: absolute;
+    width: 30vw;
+    height: 25%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    .header__text1 {
+      width: 30%;
+      height: 50%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      margin-right: 20px;
+      img {
+        width: 40px;
+        height: 15px;
+      }
+    }
+    .header__icon {
+      width: 30%;
+      cursor: pointer;
+      width: 50px;
+    }
+    .header__text2 {
+      width: 30%;
+      height: 50%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      margin-left: 10px;
+      img {
+        width: 90px;
+        height: 15px;
+      }
+    }
+  }
+  .lobyMain__content {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    .lobyMain__content__container {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      content: "";
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 14;
+      filter: grayscale(1);
+      &:hover {
+        filter: none;
+        opacity: 1;
+        transition: filter 0.3s ease-in-out;
+        .left__content,
+        .right__content {
+          opacity: 1;
+          transition: opacity 0.8s ease-in-out;
+        }
+      }
+      .content__container {
+        cursor: pointer;
+        opacity: 0;
+        width: 50%;
+        height: 50%;
+        border-radius: 20px;
+        background: rgba(0, 0, 0, 0.8);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: saturate(180%) blur(10px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        --animate-delay: 1.5s;
+        .content__text {
+          font-family: "Bungee Spice", cursive;
+        }
+      }
+      .content__arrow {
+        position: absolute;
+        bottom: 0;
+        z-index: 20;
+      }
+    }
+    .lobyMain__left__container {
+      background-image: url("/src/assets/polygons2.jpg");
+      .left__arrow {
+        right: 5px;
+      }
+    }
+    .lobyMain__right__container {
+      background-image: url("/src/assets/polygons1.jpg");
+      .right__arrow {
+        left: 5px;
+        transform: scaleX(-1) !important;
+      }
+    }
+  }
+}
+
+.animate__loby {
+  animation: zoomOutDown;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}

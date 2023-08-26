@@ -1,0 +1,78 @@
+.userProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f5f5f5;
+  .userProfile__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: #f5f5f5;
+    .userProfile__header__title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #000;
+    }
+    .userProfile__header__subtitle {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #000;
+    }
+  }
+  .userProfile__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: #f5f5f5;
+    .userProfile__body__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      background-color: #f5f5f5;
+      .userProfile__body__form__input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        background-color: #f5f5f5;
+        .userProfile__body__form__input__label {
+          font-size: 1.5rem;
+          font-weight: 400;
+          color: #000;
+        }
+        .userProfile__body__form__input__input {
+          font-size: 1.5rem;
+          font-weight: 400;
+          color: #000;
+        }
+      }
+    }
+  }
+  .userProfile__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: #f5f5f5;
+    .userProfile__footer__button {
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+  }
+}
