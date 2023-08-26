@@ -1,0 +1,416 @@
+.manualBoard__container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background: -webkit-linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+  background-size: 400% 400%;
+  animation: gradient 6s ease-in infinite;
+  overflow: hidden;
+  animation: zoomInUp;
+  animation-duration: 2s;
+  &::after {
+    content: "";
+    position: absolute;
+    background: inherit;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  background-image: url("../../assets/schoolBoard.png");
+  background-repeat: no-repeat;
+  background-size: 113% 117%;
+  background-position: center;
+  .manualBoard__container__canvas {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    canvas {
+      display: block;
+    }
+  }
+  .manualBoard__container__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 22px;
+    margin-top: 10px;
+    z-index: 1;
+    .manualBoard__container__header__title {
+      position: relative;
+      top: 80px;
+      left: 50px;
+      pointer-events: none;
+      z-index: 1;
+      img {
+        width: 250px;
+      }
+    }
+  }
+  .manualBoard__container__content {
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+  .date__day__container {
+    cursor: none;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    z-index: 1;
+    font-family: "Walter Turncoat", cursive;
+    font-size: 1.5rem;
+    color: #fff;
+    height: 85px;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5px;
+    border-bottom: 4px white ridge;
+    border-right: 4px white ridge;
+  }
+  .falmes__text__container {
+    cursor: none;
+    font-family: "Fredericka the Great", cursive;
+    font-size: 3rem;
+    color: #fff;
+    z-index: 1;
+    position: absolute;
+    top: 20%;
+    left: 7%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 40px;
+    height: 70%;
+  }
+  .right__container__bgBorder {
+    border-radius: 5px;
+    border-bottom: 4px white ridge;
+    border-left: 4px white ridge;
+    z-index: 1;
+  }
+
+  .downArrow {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background: navajowhite;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 6px;
+    right: 7px;
+    z-index: 10;
+    svg {
+      cursor: pointer;
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .showRight {
+    transform: translate(0px, 0px) !important;
+  }
+  .flames__input__container {
+    cursor: pointer;
+    font-family: "Fredericka the Great", cursive;
+    font-size: 13rem;
+    color: #fff;
+    z-index: 1;
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 70%;
+    height: 80%;
+  }
+  .editInputOn {
+    cursor: none;
+  }
+  .flames__input {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    .input__tools {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+    .input__textField {
+      font-family: "QuickSand", sans-serif !important;
+      width: 100%;
+      label {
+        color: navajowhite;
+        font-family: inherit !important;
+        font-weight: bold;
+      }
+      & .MuiInputBase-input {
+        color: whitesmoke;
+        padding: 2px 14px 0px 14px !important;
+        padding-top: 30px !important;
+        font-family: "Walter Turncoat", cursive !important;
+        font-size: 4.5rem;
+        font-weight: 300;
+        letter-spacing: 20px;
+      }
+
+      & .MuiInput-root:after {
+        border-bottom: 2px white ridge !important;
+      }
+      & .MuiInput-root:before {
+        border-bottom: 1px ridge rgba(255, 255, 255, 0.64) !important;
+      }
+    }
+    .input_error {
+      label {
+        color: red !important;
+      }
+      & .MuiInput-root:after {
+        border-bottom: 2px ridge red !important;
+      }
+    }
+    .input__edit__icon,
+    .input__erase__icon {
+      cursor: pointer;
+      border-radius: 6px;
+      &:hover {
+        background-color: rgba(51, 51, 51, 0.45);
+      }
+    }
+    .edit_on {
+      background-color: rgba(204, 204, 204, 0.53);
+    }
+    .editInputOn {
+      pointer-events: none;
+      cursor: none;
+    }
+  }
+}
+
+.manualBoard__right__container {
+  cursor: pointer;
+  z-index: 2;
+  & .MuiPaper-root {
+    background: transparent !important;
+  }
+}
+
+.clean_all_icon,
+.download_icon {
+  cursor: pointer;
+}
+
+.tgl {
+  display: none;
+
+  // add default box-sizing for this scope
+  &,
+  &:after,
+  &:before,
+  & *,
+  & *:after,
+  & *:before,
+  & + .tgl-btn {
+    box-sizing: border-box;
+    &::selection {
+      background: none;
+    }
+  }
+
+  + .tgl-btn {
+    outline: 0;
+    display: block;
+    width: 4em;
+    height: 2em;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    &:after,
+    &:before {
+      position: relative;
+      display: block;
+      content: "";
+      width: 50%;
+      height: 100%;
+    }
+
+    &:after {
+      left: 0;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+
+  &:checked + .tgl-btn:after {
+    left: 50%;
+  }
+}
+
+.tgl-flip {
+  + .tgl-btn {
+    padding: 2px;
+    transition: all 0.2s ease;
+    font-family: sans-serif;
+    perspective: 100px;
+    &:after,
+    &:before {
+      display: inline-block;
+      transition: all 0.4s ease;
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      line-height: 2em;
+      font-weight: bold;
+      color: #fff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      border-radius: 4px;
+    }
+
+    &:after {
+      content: attr(data-tg-on);
+      background: #02c66f;
+      transform: rotateY(-180deg);
+    }
+
+    &:before {
+      background: #ff3a19;
+      content: attr(data-tg-off);
+    }
+
+    &:active:before {
+      transform: rotateY(-20deg);
+    }
+  }
+
+  &:checked + .tgl-btn {
+    &:before {
+      transform: rotateY(180deg);
+    }
+
+    &:after {
+      transform: rotateY(0);
+      left: 0;
+      background: #7fc6a6;
+    }
+
+    &:active:after {
+      transform: rotateY(20deg);
+    }
+  }
+}
+
+#chalkboard {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  canvas {
+    display: block;
+  }
+  cursor: none;
+}
+.chalk {
+  width: 40px;
+  height: 50px;
+  background: url("../../assets/chalk.png");
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  bottom: 0;
+  left: 0;
+  cursor: none;
+  z-index: 2;
+}
+
+.eraser {
+  width: 40px;
+  height: 50px;
+  background: url("../../assets/duster_sm.png");
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  bottom: 0;
+  left: 0;
+  cursor: none;
+  z-index: 2;
+}
+
+.panel {
+  display: block;
+  font-size: 18px;
+  color: #333;
+  font-family: sans-serif;
+  position: absolute;
+  margin: 1em;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+}
+.panel a {
+  display: inline-block;
+  padding: 0.5em 1em;
+  background: #ccc;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.8;
+  margin-right: 0.5em;
+}
+.panel a:hover {
+  opacity: 1;
+}
+
+.animateWobble {
+  animation: wobble 1s ease-in-out infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
