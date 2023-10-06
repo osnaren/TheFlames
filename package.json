@@ -14,7 +14,7 @@
     "@mui/material": "^5.10.17",
     "@reduxjs/toolkit": "^1.9.0",
     "animate.css": "^4.1.1",
-    "html-to-image": "^1.11.3",
+    "html-to-image": "^1.11.11",
     "html2canvas": "^1.4.1",
     "jquery": "^3.6.1",
     "random-avatar-generator": "^2.0.0",
