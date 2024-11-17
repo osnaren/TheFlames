@@ -3,25 +3,28 @@ version = 1
 exclude_patterns = [
   "bin/**",
   "**/node_modules/**",
-  "**/dist/**",           
-  "**/*.min.js",        
-  "vite.config.js"        
+  "**/dist/**",
+  "**/*.min.js",
+  "vite.config.js"
 ]
-
 
 [[analyzers]]
 name = "javascript"
-enabled = true
 
-[analyzers.meta]
-plugins = ["react", "eslint-plugin-react"]
-module_system = "es-modules"
-environment = ["nodejs", "browser"]
-dialect = "typescript"
-skip_doc_coverage = ["class-expression", "method-definition"]
-cyclomatic_complexity_threshold = "high"
-style_guide = "airbnb"
+  [analyzers.meta]
+  module_system = "es-modules"
+  plugins = [
+    "react",
+    "eslint-plugin-react"
+  ]
+  environment = [
+    "nodejs",
+    "browser",
+    "vitest"
+  ]
+  skip_doc_coverage = ["class-expression", "method-definition"]
+  cyclomatic_complexity_threshold = "high"
+  style_guide = "airbnb"
 
 [[transformers]]
 name = "prettier"
-enabled = true
