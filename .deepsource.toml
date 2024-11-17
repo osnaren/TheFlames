@@ -2,15 +2,26 @@ version = 1
 
 exclude_patterns = [
   "bin/**",
-  "**/node_modules/",
-  "js/**/*.min.js"
+  "**/node_modules/**",
+  "**/dist/**",           
+  "**/*.min.js",        
+  "vite.config.js"        
 ]
 
-# Configuration for JavaScript/TypeScript analyzer
+
 [[analyzers]]
 name = "javascript"
 enabled = true
 
-  [analyzers.meta]
-  runtime_version = "nodejs14"
-  project_type = "react"
+[analyzers.meta]
+plugins = ["react", "eslint-plugin-react"]
+module_system = "es-modules"
+environment = ["nodejs", "browser"]
+dialect = "typescript"
+skip_doc_coverage = ["class-expression", "method-definition"]
+cyclomatic_complexity_threshold = "high"
+style_guide = "airbnb"
+
+[[transformers]]
+name = "prettier"
+enabled = true
