@@ -1,9 +1,9 @@
-import "./flamesLogo.scss";
-import $ from "jquery";
-import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import './flamesLogo.scss';
+import $ from 'jquery';
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import FlameGif from "../../assets/flame.gif";
+import FlameGif from '../../assets/flame.gif';
 
 export default function FlamesLogo() {
   return (

@@ -1,14 +1,14 @@
-import "./notFound.scss";
-import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import Lottie from "react-lottie";
-import animationData from "../../assets/home.json";
+import './notFound.scss';
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import Lottie from 'react-lottie';
+import animationData from '../../assets/home.json';
 
 const defaultOptions = {
   loop: true,
   animationData: animationData,
   rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice",
+    preserveAspectRatio: 'xMidYMid slice',
   },
 };
 
@@ -160,10 +160,8 @@ export default function NotFound() {
             </div>
             <div className="number">4</div>
           </div>
-          <div className="subtitle">
-            Oops. Looks like you took a wrong turn.
-          </div>
-          <div className="back__button" onClick={() => history.push("/")}>
+          <div className="subtitle">Oops. Looks like you took a wrong turn.</div>
+          <div className="back__button" onClick={() => history.push('/')}>
             <div className="back__button__text">Go back</div>
             <div className="home__animation">
               <Lottie

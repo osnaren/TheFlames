@@ -1,31 +1,27 @@
-import "./manualBoard.scss";
-import { useEffect, useState, createRef } from "react";
-import { useHistory } from "react-router-dom";
-import $ from "jquery";
-import Lottie from "react-lottie";
-import Footer from "../../reusables/footer/footer";
-import animationData from "../../assets/duster.json";
-import animationData1 from "../../assets/download.json";
-import { useScreenshot } from "use-react-screenshot";
-import TextField from "@mui/material/TextField";
-import reactNotify from "../../utils/notifyFunctions";
-import {
-  BsBoxArrowDownLeft,
-  BsBoxArrowUpRight,
-  BsEraser,
-} from "react-icons/bs";
-import ToggleButton from "@mui/material/ToggleButton";
-import { MdOutlineEdit, MdOutlineEditOff } from "react-icons/md";
-import Popover from "@mui/material/Popover";
+import './manualBoard.scss';
+import { useEffect, useState, createRef } from 'react';
+import { useHistory } from 'react-router-dom';
+import $ from 'jquery';
+import Lottie from 'react-lottie';
+import Footer from '../../reusables/footer/footer';
+import animationData from '../../assets/duster.json';
+import animationData1 from '../../assets/download.json';
+import { useScreenshot } from 'use-react-screenshot';
+import TextField from '@mui/material/TextField';
+import reactNotify from '../../utils/notifyFunctions';
+import { BsBoxArrowDownLeft, BsBoxArrowUpRight, BsEraser } from 'react-icons/bs';
+import ToggleButton from '@mui/material/ToggleButton';
+import { MdOutlineEdit, MdOutlineEditOff } from 'react-icons/md';
+import Popover from '@mui/material/Popover';
 
-import * as htmlToImage from "html-to-image";
-import { toPng, toJpeg, toBlob, toPixelData, toSvg } from "html-to-image";
+import * as htmlToImage from 'html-to-image';
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 
 const defaultOptions = {
   loop: true,
   animationData: animationData,
   rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice",
+    preserveAspectRatio: 'xMidYMid slice',
   },
 };
 
@@ -33,31 +29,23 @@ const downloadOptions = {
   loop: true,
   animationData: animationData1,
   rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice",
+    preserveAspectRatio: 'xMidYMid slice',
   },
 };
 
-const weekday = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 function chalkboard() {
-  $("#chalkboard").remove();
-  $(".chalk").remove();
-  $("#chalkBoard__canvas").prepend('<canvas id="chalkboard"></canvas>');
-  $("#chalkBoard__canvas").prepend('<div className="chalk"></div>');
-  $(".panel").css("display", "none");
+  $('#chalkboard').remove();
+  $('.chalk').remove();
+  $('#chalkBoard__canvas').prepend('<canvas id="chalkboard"></canvas>');
+  $('#chalkBoard__canvas').prepend('<div className="chalk"></div>');
+  $('.panel').css('display', 'none');
 
-  var canvas = document.getElementById("chalkboard");
+  var canvas = document.getElementById('chalkboard');
   canvas.width = $(window).width();
   canvas.height = $(window).height();
-  var ctx = canvas.getContext("2d");
+  var ctx = canvas.getContext('2d');
 
   var width = canvas.width;
   var height = canvas.height;
@@ -71,35 +59,35 @@ function chalkboard() {
   var eraserWidth = 50;
   var eraserHeight = 100;
 
-  $("#chalkboard").css("cursor", "none");
+  $('#chalkboard').css('cursor', 'none');
   document.onselectstart = function () {
     return false;
   };
-  ctx.fillStyle = "rgba(255,255,255,0.5)";
-  ctx.strokeStyle = "rgba(255,255,255,0.5)";
+  ctx.fillStyle = 'rgba(255,255,255,0.5)';
+  ctx.strokeStyle = 'rgba(255,255,255,0.5)';
   ctx.lineWidth = brushDiameter;
-  ctx.lineCap = "round";
+  ctx.lineCap = 'round';
 
   document.addEventListener(
-    "touchmove",
+    'touchmove',
     function (evt) {
       var touch = evt.touches[0];
       mouseX = touch.pageX;
       mouseY = touch.pageY;
       if (mouseY < height && mouseX < width) {
         evt.preventDefault();
-        $(".chalk").css("left", mouseX + "px");
-        $(".chalk").css("top", mouseY + "px");
+        $('.chalk').css('left', mouseX + 'px');
+        $('.chalk').css('top', mouseY + 'px');
         //$('.chalk').css('display', 'none');
         if (mouseD) {
           draw(mouseX, mouseY);
         }
       }
     },
-    false,
+    false
   );
   document.addEventListener(
-    "touchstart",
+    'touchstart',
     function (evt) {
       //evt.preventDefault();
       var touch = evt.touches[0];
@@ -110,27 +98,27 @@ function chalkboard() {
       yLast = mouseY;
       draw(mouseX + 1, mouseY + 1);
     },
-    false,
+    false
   );
   document.addEventListener(
-    "touchend",
+    'touchend',
     function (evt) {
       mouseD = false;
     },
-    false,
+    false
   );
-  $("#chalkboard").css("cursor", "none");
-  ctx.fillStyle = "rgba(255,255,255,0.5)";
-  ctx.strokeStyle = "rgba(255,255,255,0.5)";
+  $('#chalkboard').css('cursor', 'none');
+  ctx.fillStyle = 'rgba(255,255,255,0.5)';
+  ctx.strokeStyle = 'rgba(255,255,255,0.5)';
   ctx.lineWidth = brushDiameter;
-  ctx.lineCap = "round";
+  ctx.lineCap = 'round';
 
-  $(document).on("mousemove", function (evt) {
+  $(document).on('mousemove', function (evt) {
     mouseX = evt.pageX;
     mouseY = evt.pageY;
     if (mouseY < height && mouseX < width) {
-      $(".chalk").css("left", mouseX + 1.5 * brushDiameter + "px");
-      $(".chalk").css("top", mouseY - 0.5 * brushDiameter + "px");
+      $('.chalk').css('left', mouseX + 1.5 * brushDiameter + 'px');
+      $('.chalk').css('top', mouseY - 0.5 * brushDiameter + 'px');
       if (mouseD) {
         if (eraser) {
           erase(mouseX, mouseY);
@@ -139,41 +127,41 @@ function chalkboard() {
         }
       }
     } else {
-      $(".chalk").css("top", height - 10);
+      $('.chalk').css('top', height - 10);
     }
   });
 
-  $(document).on("mousedown", function (evt) {
+  $(document).on('mousedown', function (evt) {
     mouseD = true;
     xLast = mouseX;
     yLast = mouseY;
     if (evt.button == 2) {
       erase(mouseX, mouseY);
       eraser = true;
-      $(".chalk").addClass("eraser");
+      $('.chalk').addClass('eraser');
     } else {
-      if (!$(".panel:hover").length === 0) {
+      if (!$('.panel:hover').length === 0) {
         draw(mouseX + 1, mouseY + 1);
       }
     }
   });
 
-  $(document).on("mouseup", function (evt) {
+  $(document).on('mouseup', function (evt) {
     mouseD = false;
     if (evt.button == 2) {
       eraser = false;
-      $(".chalk").removeClass("eraser");
+      $('.chalk').removeClass('eraser');
     }
   });
 
-  $(document).on("keyup", function (evt) {
-    if (evt.key == "space") {
+  $(document).on('keyup', function (evt) {
+    if (evt.key == 'space') {
       ctx.clearRect(0, 0, width, height);
       layPattern();
     }
   });
 
-  $(document).on("keyup", function (evt) {
+  $(document).on('keyup', function (evt) {
     if (evt.keyCode == 83) {
       // changeLink();
     }
@@ -184,17 +172,14 @@ function chalkboard() {
   };
 
   function draw(x, y) {
-    ctx.strokeStyle = "rgba(255,255,255," + (0.4 + Math.random() * 0.2) + ")";
+    ctx.strokeStyle = 'rgba(255,255,255,' + (0.4 + Math.random() * 0.2) + ')';
     ctx.beginPath();
     ctx.moveTo(xLast, yLast);
     ctx.lineTo(x, y);
     ctx.stroke();
 
     // Chalk Effect
-    var length = Math.round(
-      Math.sqrt(Math.pow(x - xLast, 2) + Math.pow(y - yLast, 2)) /
-        (5 / brushDiameter),
-    );
+    var length = Math.round(Math.sqrt(Math.pow(x - xLast, 2) + Math.pow(y - yLast, 2)) / (5 / brushDiameter));
     var xUnit = (x - xLast) / length;
     var yUnit = (y - yLast) / length;
     for (var i = 0; i < length; i++) {
@@ -210,24 +195,17 @@ function chalkboard() {
   }
 
   function erase(x, y) {
-    ctx.clearRect(
-      x - 0.5 * eraserWidth,
-      y - 0.5 * eraserHeight,
-      eraserWidth,
-      eraserHeight,
-    );
+    ctx.clearRect(x - 0.5 * eraserWidth, y - 0.5 * eraserHeight, eraserWidth, eraserHeight);
   }
 
   function IEsave(ctximage) {
     setTimeout(function () {
       var win = window.open();
-      $(win.document.body).html(
-        '<img src="' + ctximage + '" name="chalkboard.png">',
-      );
+      $(win.document.body).html('<img src="' + ctximage + '" name="chalkboard.png">');
     }, 500);
   }
 
-  $(window).on("resize", function () {
+  $(window).on('resize', function () {
     // chalkboard();
   });
 }
@@ -235,15 +213,15 @@ function chalkboard() {
 export default function ManualBoard() {
   const ref = createRef(null);
   const [viewBoardBg, setViewBoardBg] = useState(false);
-  const [currentDate, setCurrentDate] = useState("");
+  const [currentDate, setCurrentDate] = useState('');
   const [currentDay, setCurrentDay] = useState(0);
   const [isDusterPaused, setIsDusterPaused] = useState(true);
   const [isDusterStopped, setIsDusterStopped] = useState(true);
   const [isDownloadPaused, setIsDownloadPaused] = useState(true);
   const [isDownloadStopped, setIsDownloadStopped] = useState(true);
   const [isToolsVisible, setIsToolsVisible] = useState(false);
-  const [person1Name, setPerson1Name] = useState("");
-  const [person2Name, setPerson2Name] = useState("");
+  const [person1Name, setPerson1Name] = useState('');
+  const [person2Name, setPerson2Name] = useState('');
   const [person1NameError, setPerson1NameError] = useState(false);
   const [person2NameError, setPerson2NameError] = useState(false);
   const [person1NameValid, setPerson1NameValid] = useState(false);
@@ -261,31 +239,29 @@ export default function ManualBoard() {
 
   useEffect(() => {
     setCurrentDay(weekday[new Date().getDay()]);
-    setCurrentDate(new Date().toLocaleDateString("en-IN"));
+    setCurrentDate(new Date().toLocaleDateString('en-IN'));
     setTimeout(() => {
       chalkboard();
     }, 1500);
   }, []);
 
   const downloadImage = () => {
-    $("#tools").hide();
-    $(".chalk").css("display", "none");
+    $('#tools').hide();
+    $('.chalk').css('display', 'none');
     htmlToImage
-      .toCanvas(document.getElementById("schoolBg"))
+      .toCanvas(document.getElementById('schoolBg'))
       .then(function (canvas) {
-        var img = canvas
-          .toDataURL("image/png", 1.0)
-          .replace("image/png", "image/octet-stream");
-        var link = document.createElement("a");
-        link.download = "flames-result.png";
+        var img = canvas.toDataURL('image/png', 1.0).replace('image/png', 'image/octet-stream');
+        var link = document.createElement('a');
+        link.download = 'flames-result.png';
         link.href = img;
         link.click();
       })
       .then(() => {
         setIsDownloadPaused(true);
         setIsDownloadStopped(true);
-        $(".chalk").css("display", "block");
-        $("#tools").show();
+        $('.chalk').css('display', 'block');
+        $('#tools').show();
         setTimeout(() => {
           handleToolsVisible();
         }, 1000);
@@ -295,15 +271,15 @@ export default function ManualBoard() {
   const handleClearAll = () => {
     setIsDusterPaused(false);
     setIsDusterStopped(false);
-    $(".chalk").css("display", "none");
-    $("#chalkBoard__canvas").addClass("animate__wobble");
+    $('.chalk').css('display', 'none');
+    $('#chalkBoard__canvas').addClass('animate__wobble');
     setTimeout(() => {
-      var canvas = document.getElementById("chalkboard");
-      var ctx = canvas.getContext("2d");
+      var canvas = document.getElementById('chalkboard');
+      var ctx = canvas.getContext('2d');
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       setTimeout(() => {
-        $("#chalkBoard__canvas").removeClass("animate__wobble");
-        $(".chalk").css("display", "block");
+        $('#chalkBoard__canvas').removeClass('animate__wobble');
+        $('.chalk').css('display', 'block');
         setIsDusterPaused(true);
         setIsDusterStopped(true);
         handleToolsVisible();
@@ -314,61 +290,61 @@ export default function ManualBoard() {
   const handleToolsVisible = () => {
     if (isToolsVisible) {
       setIsToolsVisible(false);
-      $(".chalk").css("display", "block");
+      $('.chalk').css('display', 'block');
     } else {
       setIsToolsVisible(true);
-      $(".chalk").css("display", "none");
+      $('.chalk').css('display', 'none');
     }
   };
 
   const notifyNameError = (caseNo) => {
-    var message = "";
+    var message = '';
     if (caseNo === 1) {
-      message = "Name must be atleast 3 characters";
+      message = 'Name must be atleast 3 characters';
     } else if (caseNo === 2) {
-      message = "Name must be alphanumeric";
+      message = 'Name must be alphanumeric';
     }
     reactNotify({
-      type: "error",
+      type: 'error',
       message: message,
       options: {
         style: {
-          borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
         },
-        position: "top-center",
+        position: 'top-center',
       },
     });
   };
 
   const notifyNameSuccess = () => {
     reactNotify({
-      type: "success",
-      message: "Name is Vaild",
+      type: 'success',
+      message: 'Name is Vaild',
       options: {
         style: {
-          borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
         },
-        position: "top-center",
+        position: 'top-center',
       },
     });
   };
 
   const handleNameChange = (e) => {
-    let input = e.target.closest(".flames__input");
-    if (input.id === "manualInput1") {
+    let input = e.target.closest('.flames__input');
+    if (input.id === 'manualInput1') {
       setPerson1Name(e.target.value);
-    } else if (input.id === "manualInput2") {
+    } else if (input.id === 'manualInput2') {
       setPerson2Name(e.target.value);
     }
   };
 
   const handleNameBlur = (e) => {
-    let input = e.target.closest(".flames__input");
-    if (input.id === "manualInput1") {
+    let input = e.target.closest('.flames__input');
+    if (input.id === 'manualInput1') {
       if (person1Name.length < 3) {
         notifyNameError(1);
         setPerson1NameError(true);
@@ -382,7 +358,7 @@ export default function ManualBoard() {
         notifyNameSuccess();
         setPerson1NameError(false);
       }
-    } else if (input.id === "manualInput2") {
+    } else if (input.id === 'manualInput2') {
       if (person2Name.length < 3) {
         notifyNameError(1);
         setPerson2NameError(true);
@@ -400,36 +376,36 @@ export default function ManualBoard() {
   };
 
   const handleNameFocus = (e) => {
-    let input = e.target.closest(".flames__input");
-    if (input.id === "manualInput1") {
+    let input = e.target.closest('.flames__input');
+    if (input.id === 'manualInput1') {
       setPerson1NameError(false);
-    } else if (input.id === "manualInput2") {
+    } else if (input.id === 'manualInput2') {
       setPerson2NameError(false);
     }
   };
 
   const handleEditToggle = (e) => {
-    let input = e.target.closest(".flames__input");
-    if (input.id === "manualInput1") {
+    let input = e.target.closest('.flames__input');
+    if (input.id === 'manualInput1') {
       setName1edit(!name1edit);
-      if (name1edit) $("#person1_input").trigger("focus");
-    } else if (input.id === "manualInput2") {
+      if (name1edit) $('#person1_input').trigger('focus');
+    } else if (input.id === 'manualInput2') {
       setName2edit(!name2edit);
-      if (name2edit) $("#person2_input").trigger("focus");
+      if (name2edit) $('#person2_input').trigger('focus');
     }
   };
 
   const handleMouseEnterInput = (e) => {
     if (!name1edit || !name2edit) return;
-    $(".chalk").hide();
+    $('.chalk').hide();
   };
 
   const handleMouseLeaveInput = (e) => {
-    $(".chalk").show();
+    $('.chalk').show();
   };
 
   const handleToggleBoard = (e) => {
-    console.log("toggle", e.target.checked);
+    console.log('toggle', e.target.checked);
   };
 
   return (
@@ -437,15 +413,10 @@ export default function ManualBoard() {
       <div className="manualBoard__container" id="schoolBg" ref={ref}>
         {/* {viewBgCanvas && <div id="canvas-shapes"></div>} */}
         {viewBoardBg && (
-          <div
-            className="manualBoard__container__canvas animate__animated"
-            id="chalkBoard__canvas"
-          ></div>
+          <div className="manualBoard__container__canvas animate__animated" id="chalkBoard__canvas"></div>
         )}
         <div className="date__day__container">
-          <div className="manualBoard__date__container">
-            Date : {currentDate}
-          </div>
+          <div className="manualBoard__date__container">Date : {currentDate}</div>
           <div className="manualBoard__day__container">Day : {currentDay}</div>
         </div>
         <div className="falmes__text__container">
@@ -462,19 +433,15 @@ export default function ManualBoard() {
           id="tools"
           onClick={handleToolsVisible}
           onMouseEnter={(e) => {
-            $(".chalk").css("display", "none");
+            $('.chalk').css('display', 'none');
             setDvcInfoAnchorEl(e.currentTarget);
           }}
           onMouseLeave={() => {
-            $(".chalk").css("display", "block");
+            $('.chalk').css('display', 'block');
             setAnchorNull();
           }}
         >
-          {isToolsVisible ? (
-            <BsBoxArrowUpRight size={20} />
-          ) : (
-            <BsBoxArrowDownLeft size={20} />
-          )}
+          {isToolsVisible ? <BsBoxArrowUpRight size={20} /> : <BsBoxArrowDownLeft size={20} />}
           {isToolsVisible && (
             <Popover
               className="manualBoard__right__container"
@@ -483,12 +450,12 @@ export default function ManualBoard() {
               anchorEl={dvcInfoAnchorEl}
               onClose={setAnchorNull}
               anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
+                vertical: 'bottom',
+                horizontal: 'left',
               }}
               transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
+                vertical: 'top',
+                horizontal: 'left',
               }}
             >
               <div
@@ -497,12 +464,12 @@ export default function ManualBoard() {
                 onMouseEnter={() => {
                   setIsDusterPaused(false);
                   setIsDusterStopped(false);
-                  $(".chalk").css("display", "none");
+                  $('.chalk').css('display', 'none');
                 }}
                 onMouseLeave={() => {
                   setIsDusterPaused(true);
                   setIsDusterStopped(true);
-                  $(".chalk").css("display", "block");
+                  $('.chalk').css('display', 'block');
                 }}
                 onClick={handleClearAll}
               >
@@ -520,17 +487,17 @@ export default function ManualBoard() {
                 onMouseEnter={() => {
                   setIsDownloadPaused(false);
                   setIsDownloadStopped(false);
-                  $(".chalk").css("display", "none");
+                  $('.chalk').css('display', 'none');
                 }}
                 onMouseLeave={() => {
                   setIsDownloadPaused(true);
                   setIsDownloadStopped(true);
-                  $(".chalk").css("display", "block");
+                  $('.chalk').css('display', 'block');
                 }}
                 onClick={() => {
                   setIsDownloadPaused(false);
                   setIsDownloadStopped(false);
-                  $(".chalk").css("display", "none");
+                  $('.chalk').css('display', 'none');
                   setTimeout(() => {
                     downloadImage();
                   }, 1300);
@@ -558,32 +525,22 @@ export default function ManualBoard() {
         </div>
         <div className="flames__input__container">
           <div
-            className={
-              "flames__input" + ` ${person1NameValid ? "editInputOn" : ""}`
-            }
+            className={'flames__input' + ` ${person1NameValid ? 'editInputOn' : ''}`}
             id="manualInput1"
             onMouseEnter={handleMouseEnterInput}
             onMouseLeave={handleMouseLeaveInput}
           >
             <div className="input__tools">
               {name1edit ? (
-                <MdOutlineEdit
-                  size={30}
-                  className="input__edit__icon edit_on"
-                  onClick={handleEditToggle}
-                />
+                <MdOutlineEdit size={30} className="input__edit__icon edit_on" onClick={handleEditToggle} />
               ) : (
-                <MdOutlineEditOff
-                  size={30}
-                  className="input__edit__icon"
-                  onClick={handleEditToggle}
-                />
+                <MdOutlineEditOff size={30} className="input__edit__icon" onClick={handleEditToggle} />
               )}
               <BsEraser
                 size={30}
                 className="input__erase__icon"
                 onClick={() => {
-                  setPerson1Name("");
+                  setPerson1Name('');
                   setPerson1NameValid(false);
                 }}
               />
@@ -591,13 +548,11 @@ export default function ManualBoard() {
             <TextField
               id="person1_input"
               className={
-                "input__textField" +
-                ` ${person1NameError ? "input_error" : ""} ${
-                  person1NameValid ? "editInputOn" : ""
-                }`
+                'input__textField' +
+                ` ${person1NameError ? 'input_error' : ''} ${person1NameValid ? 'editInputOn' : ''}`
               }
               onDoubleClick={() => setName1edit(true)}
-              value={person1Name || ""}
+              value={person1Name || ''}
               label="Name 1"
               variant="standard"
               error={person1NameError}
@@ -608,32 +563,22 @@ export default function ManualBoard() {
             />
           </div>
           <div
-            className={
-              "flames__input" + ` ${person2NameValid ? "editInputOn" : ""}`
-            }
+            className={'flames__input' + ` ${person2NameValid ? 'editInputOn' : ''}`}
             id="manualInput2"
             onMouseEnter={handleMouseEnterInput}
             onMouseLeave={handleMouseLeaveInput}
           >
             <div className="input__tools">
               {name2edit ? (
-                <MdOutlineEdit
-                  size={30}
-                  className="input__edit__icon edit_on"
-                  onClick={handleEditToggle}
-                />
+                <MdOutlineEdit size={30} className="input__edit__icon edit_on" onClick={handleEditToggle} />
               ) : (
-                <MdOutlineEditOff
-                  size={30}
-                  className="input__edit__icon"
-                  onClick={handleEditToggle}
-                />
+                <MdOutlineEditOff size={30} className="input__edit__icon" onClick={handleEditToggle} />
               )}
               <BsEraser
                 size={30}
                 className="input__erase__icon"
                 onClick={() => {
-                  setPerson2Name("");
+                  setPerson2Name('');
                   setPerson2NameValid(false);
                 }}
               />
@@ -641,13 +586,10 @@ export default function ManualBoard() {
             <TextField
               id="person2_input"
               className={
-                "input__textField" +
-                ` ${person2NameError ? "input_error" : ""}${
-                  person2NameValid ? "editInputOn" : ""
-                }`
+                'input__textField' + ` ${person2NameError ? 'input_error' : ''}${person2NameValid ? 'editInputOn' : ''}`
               }
               onDoubleClick={() => setName2edit(true)}
-              value={person2Name || ""}
+              value={person2Name || ''}
               label="Name 2"
               variant="standard"
               error={person2NameError}

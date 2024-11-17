@@ -1,17 +1,16 @@
-import "./flamesMain.scss";
+import './flamesMain.scss';
 
-import { useEffect, useState } from "react";
-import { useCallback } from "react";
-import { useHistory } from "react-router-dom";
-import $ from "jquery";
-import Particles from "react-particles";
-import { loadFull } from "tsparticles";
+import { useEffect, useState, useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
+import $ from 'jquery';
+import Particles from 'react-particles';
+import { loadFull } from 'tsparticles';
 
-import GamePlay from "../gamePlay/gamePlay";
-import Footer from "../../reusables/footer/footer";
-import FlamesLogo from "../../reusables/flamesLogo/flamesLogo.jsx";
-import FlamesText from "../../assets/theFlamesText.svg";
-import FooterWave from "../../assets/footerWave.svg";
+import GamePlay from '../gamePlay/gamePlay';
+import Footer from '../../reusables/footer/footer';
+import FlamesLogo from '../../reusables/flamesLogo/flamesLogo';
+import FlamesText from '../../assets/theFlamesText.svg';
+import FooterWave from '../../assets/footerWave.svg';
 export default function FlamesMain() {
   const history = useHistory();
   const [viewParticles, setViewParticles] = useState(true);
@@ -39,11 +38,11 @@ export default function FlamesMain() {
                     events: {
                       onClick: {
                         enable: false,
-                        mode: "push",
+                        mode: 'push',
                       },
                       onHover: {
                         enable: true,
-                        mode: "repulse",
+                        mode: 'repulse',
                       },
                       resize: true,
                     },
@@ -59,10 +58,10 @@ export default function FlamesMain() {
                   },
                   particles: {
                     color: {
-                      value: "#ffffff",
+                      value: '#ffffff',
                     },
                     links: {
-                      color: "#ffffff",
+                      color: '#ffffff',
                       distance: 150,
                       enable: true,
                       opacity: 0.5,
@@ -72,10 +71,10 @@ export default function FlamesMain() {
                       enable: false,
                     },
                     move: {
-                      directions: "none",
+                      directions: 'none',
                       enable: true,
                       outModes: {
-                        default: "bounce",
+                        default: 'bounce',
                       },
                       random: false,
                       speed: 1,
@@ -92,7 +91,7 @@ export default function FlamesMain() {
                       value: 0.5,
                     },
                     shape: {
-                      type: "circle",
+                      type: 'circle',
                     },
                     size: {
                       value: { min: 1, max: 5 },
@@ -103,11 +102,18 @@ export default function FlamesMain() {
                 init={particlesInit}
               />
             )}
-            <div className="header__border"></div>
+            <div className="header__border" />
             <div className="flamesMain__container__header">
               <div
                 className="flamesMain__container__header__icon"
-                onClick={() => history.push("/")}
+                role="button"
+                tabIndex={0}
+                onClick={() => history.push('/')}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    history.push('/');
+                  }
+                }}
               >
                 <FlamesLogo />
               </div>

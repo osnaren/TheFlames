@@ -1,5 +1,5 @@
-import { useState } from "react";
-import "./customToggle.scss";
+import { useState } from 'react';
+import './customToggle.scss';
 
 export function CustomToggle() {
   return (

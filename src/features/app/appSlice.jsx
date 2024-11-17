@@ -1,21 +1,21 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export const appSlice = createSlice({
-  name: "chatapp",
+  name: 'chatapp',
   initialState: {
     user: null,
     roomId: null,
     userName: null,
     currentPage: null,
     showLoading: false,
-    loadingText: "",
+    loadingText: '',
     showExitPopup: false,
     calibrationData: {},
-    dashboardView: "minimalist",
+    dashboardView: 'minimalist',
     isDbInitialized: false,
     dbInitError: undefined,
-    appVersion: "",
-    appReleaseDate: "",
+    appVersion: '',
+    appReleaseDate: '',
   },
   reducers: {
     setUserName: (state, action) => {
@@ -43,13 +43,12 @@ export const appSlice = createSlice({
       state.showExitPopup = action.payload.showPopup;
     },
     updateDashboardView: (state, action) => {
-      const viewsArray = ["minimalist", "detailed", "compare"];
+      const viewsArray = ['minimalist', 'detailed', 'compare'];
       const view = action.payload.view;
       if (viewsArray.indexOf(view) !== -1) state.dashboardView = view;
     },
     setDefaultDashboardView: (state) => {
-      if (state.dashboardView !== "minimalist")
-        state.dashboardView = "minimalist";
+      if (state.dashboardView !== 'minimalist') state.dashboardView = 'minimalist';
     },
   },
 });

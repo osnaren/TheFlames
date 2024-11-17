@@ -1,49 +1,49 @@
-import "./footer.scss";
+import './footer.scss';
 
-import { useState } from "react";
+import { useState } from 'react';
 
-import { FaFacebook, FaInstagram, FaTwitter, FaHeart } from "react-icons/fa";
-import FooterWave from "../../assets/footerWave.svg";
-import $ from "jquery";
-import { BsArrowBarUp } from "react-icons/bs";
+import { FaFacebook, FaInstagram, FaTwitter, FaHeart } from 'react-icons/fa';
+import FooterWave from '../../assets/footerWave.svg';
+import $ from 'jquery';
+import { BsArrowBarUp } from 'react-icons/bs';
 
 export default function Footer() {
   // Hide Header on on scroll down
   var didScroll;
 
-  $(window).on("scroll", function (event) {
+  $(window).on('scroll', function (event) {
     didScroll = true;
     if ($(window).scrollTop() > 160) {
-      $("#button").addClass("show");
+      $('#button').addClass('show');
     } else {
-      $("#button").removeClass("show");
+      $('#button').removeClass('show');
     }
   });
 
-  $("#button").on("click", function (e) {
-    console.log("clicked");
+  $('#button').on('click', function (e) {
+    console.log('clicked');
     e.preventDefault();
-    $("html, body").animate({ scrollTop: 0 }, "300");
+    $('html, body').animate({ scrollTop: 0 }, '300');
   });
 
   const [socialMedia, setSocialMedia] = useState([
     {
       id: 1,
-      name: "Facebook",
+      name: 'Facebook',
       icon: <FaFacebook className="socialIcon" />,
-      link: "https://www.facebook.com/",
+      link: 'https://www.facebook.com/',
     },
     {
       id: 2,
-      name: "Instagram",
+      name: 'Instagram',
       icon: <FaInstagram className="socialIcon" />,
-      link: "https://www.instagram.com/",
+      link: 'https://www.instagram.com/',
     },
     {
       id: 3,
-      name: "Twitter",
+      name: 'Twitter',
       icon: <FaTwitter className="socialIcon" />,
-      link: "https://twitter.com/",
+      link: 'https://twitter.com/',
     },
   ]);
 
@@ -87,17 +87,10 @@ export default function Footer() {
                 data-wow-delay="0.8s"
                 // style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;"
               >
-                <h3 className="f-title f_600 t_color f_size_18">
-                  Get In Touch
-                </h3>
+                <h3 className="f-title f_600 t_color f_size_18">Get In Touch</h3>
                 <div className="f_social_icon">
                   {socialMedia.map((social) => (
-                    <a
-                      href={social.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      key={social.id}
-                    >
+                    <a href={social.link} target="_blank" rel="noopener noreferrer" key={social.id}>
                       {social.icon}
                     </a>
                   ))}
@@ -115,9 +108,7 @@ export default function Footer() {
         <div className="footer__container">
           <div className="row align-items-center">
             <div className="col-lg-6 col-sm-7">
-              <p className="mb-0 f_400">
-                © TechForward Inc. 2022 | All rights reserved.
-              </p>
+              <p className="mb-0 f_400">© TechForward Inc. 2022 | All rights reserved.</p>
             </div>
             <div className="col-lg-6 col-sm-5 text-right">
               <p>

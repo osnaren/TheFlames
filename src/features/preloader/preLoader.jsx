@@ -1,29 +1,27 @@
-import "./preLoader.scss";
-import $ from "jquery";
-import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { withRouter } from "react-router";
-import AnimatedFlames from "../../reusables/animatedFlames/animatedFlames";
+import './preLoader.scss';
+import $ from 'jquery';
+import { useNavigate } from 'react-router-dom';
+import AnimatedFlames from '../../reusables/animatedFlames/animatedFlames';
 
 function hidePreloaders() {
-  $("#container").addClass("animate__animated animate__zoomOut");
-  $("#copyright").addClass("animate__animated animate__backOutLeft");
-  $("#version").addClass("animate__animated animate__backOutRight");
+  $('#container').addClass('animate__animated animate__zoomOut');
+  $('#copyright').addClass('animate__animated animate__backOutLeft');
+  $('#version').addClass('animate__animated animate__backOutRight');
 }
 
 function PreLoader() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   setTimeout(() => {
     hidePreloaders();
   }, 3500);
 
   setTimeout(() => {
-    $("#preloader").css("animation", "zoomOut 1s forwards");
+    $('#preloader').css('animation', 'zoomOut 1s forwards');
   }, 3800);
 
   setTimeout(() => {
-    history.push("/loby");
+    navigate('/loby');
   }, 4500);
 
   return (
@@ -41,4 +39,4 @@ function PreLoader() {
   );
 }
 
-export default withRouter(PreLoader);
+export default PreLoader;

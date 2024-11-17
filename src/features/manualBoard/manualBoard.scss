@@ -2,7 +2,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url("");
+  background-image: url('');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
@@ -17,7 +17,7 @@
   animation: zoomInUp;
   animation-duration: 2s;
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     background: inherit;
     z-index: 0;
@@ -26,7 +26,7 @@
     width: 100%;
     height: 100%;
   }
-  background-image: url("../../assets/schoolBoard.png");
+  background-image: url('../../assets/schoolBoard.png');
   background-repeat: no-repeat;
   background-size: 113% 117%;
   background-position: center;
@@ -81,7 +81,7 @@
     top: 25px;
     left: 25px;
     z-index: 1;
-    font-family: "Walter Turncoat", cursive;
+    font-family: 'Walter Turncoat', cursive;
     font-size: 1.5rem;
     color: #fff;
     height: 85px;
@@ -96,7 +96,7 @@
   }
   .falmes__text__container {
     cursor: none;
-    font-family: "Fredericka the Great", cursive;
+    font-family: 'Fredericka the Great', cursive;
     font-size: 3rem;
     color: #fff;
     z-index: 1;
@@ -141,7 +141,7 @@
   }
   .flames__input__container {
     cursor: pointer;
-    font-family: "Fredericka the Great", cursive;
+    font-family: 'Fredericka the Great', cursive;
     font-size: 13rem;
     color: #fff;
     z-index: 1;
@@ -167,7 +167,7 @@
       justify-content: space-evenly;
     }
     .input__textField {
-      font-family: "QuickSand", sans-serif !important;
+      font-family: 'QuickSand', sans-serif !important;
       width: 100%;
       label {
         color: navajowhite;
@@ -178,7 +178,7 @@
         color: whitesmoke;
         padding: 2px 14px 0px 14px !important;
         padding-top: 30px !important;
-        font-family: "Walter Turncoat", cursive !important;
+        font-family: 'Walter Turncoat', cursive !important;
         font-size: 4.5rem;
         font-weight: 300;
         letter-spacing: 20px;
@@ -259,7 +259,7 @@
     &:before {
       position: relative;
       display: block;
-      content: "";
+      content: '';
       width: 50%;
       height: 100%;
     }
@@ -352,7 +352,7 @@
 .chalk {
   width: 40px;
   height: 50px;
-  background: url("../../assets/chalk.png");
+  background: url('../../assets/chalk.png');
   position: absolute;
   padding: 0;
   margin: 0;
@@ -365,7 +365,7 @@
 .eraser {
   width: 40px;
   height: 50px;
-  background: url("../../assets/duster_sm.png");
+  background: url('../../assets/duster_sm.png');
   position: absolute;
   padding: 0;
   margin: 0;

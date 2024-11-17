@@ -5,7 +5,7 @@
   left: 0;
   bottom: 0;
   transition: bottom 0.2s ease-in-out;
-  font-family: "Dosis", sans-serif;
+  font-family: 'Dosis', sans-serif;
   background-color: beige;
 }
 .nav-down {
@@ -102,16 +102,16 @@ button:focus {
   transition: all 0.2s linear;
 }
 .ti-facebook:before {
-  content: "\e741";
+  content: '\e741';
 }
 .ti-twitter-alt:before {
-  content: "\e74b";
+  content: '\e74b';
 }
 .ti-vimeo-alt:before {
-  content: "\e74a";
+  content: '\e74a';
 }
 .ti-pinterest:before {
-  content: "\e731";
+  content: '\e731';
 }
 
 .btn_get_two {
@@ -136,7 +136,7 @@ button:focus {
   margin-left: 10px;
 }
 .new_footer_top .f-title {
-  font-family: "Dosis", sans-serif;
+  font-family: 'Dosis', sans-serif;
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 10px;
@@ -163,7 +163,7 @@ h6 {
 .new_footer_top .footer_bg {
   position: absolute;
   bottom: 0;
-  background: url("../../assets/footer_bg.png")
+  background: url('../../assets/footer_bg.png')
     //   background: url("https://img.freepik.com/free-vector/background-with-night-city-neon-lights_1441-2602.jpg?w=1380&t=st=1670399528~exp=1670400128~hmac=619c663e64ff5be9162e7bdbccf697d0efbfcfa45192af7376327008b6390227")
     no-repeat scroll center -10px;
   background-size: cover;
@@ -173,7 +173,7 @@ h6 {
 }
 
 .new_footer_top .footer_bg .footer_bg_one {
-  background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEia0PYPxwT5ifToyP3SNZeQWfJEWrUENYA5IXM6sN5vLwAKvaJS1pQVu8mOFFUa_ET4JuHNTFAxKURFerJYHDUWXLXl1vDofYXuij45JZelYOjEFoCOn7E6Vxu0fwV7ACPzArcno1rYuVxGB7JY6G7__e4_KZW4lTYIaHSLVaVLzklZBLZnQw047oq5-Q/s16000/volks.gif")
+  background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEia0PYPxwT5ifToyP3SNZeQWfJEWrUENYA5IXM6sN5vLwAKvaJS1pQVu8mOFFUa_ET4JuHNTFAxKURFerJYHDUWXLXl1vDofYXuij45JZelYOjEFoCOn7E6Vxu0fwV7ACPzArcno1rYuVxGB7JY6G7__e4_KZW4lTYIaHSLVaVLzklZBLZnQw047oq5-Q/s16000/volks.gif')
     no-repeat center center;
   width: 330px;
   height: 105px;
@@ -186,7 +186,7 @@ h6 {
 }
 
 .new_footer_top .footer_bg .footer_bg_two {
-  background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyLGwEUVwPK6Vi8xXMymsc-ZXVwLWyXhogZxbcXQYSY55REw_0D4VTQnsVzCrL7nsyjd0P7RVOI5NKJbQ75koZIalD8mqbMquP20fL3DxsWngKkOLOzoOf9sMuxlbyfkIBTsDw5WFUj-YJiI50yzgVjF8cZPHhEjkOP_PRTQXDHEq8AyWpBiJdN9SfQA/s16000/cyclist.gif")
+  background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyLGwEUVwPK6Vi8xXMymsc-ZXVwLWyXhogZxbcXQYSY55REw_0D4VTQnsVzCrL7nsyjd0P7RVOI5NKJbQ75koZIalD8mqbMquP20fL3DxsWngKkOLOzoOf9sMuxlbyfkIBTsDw5WFUj-YJiI50yzgVjF8cZPHhEjkOP_PRTQXDHEq8AyWpBiJdN9SfQA/s16000/cyclist.gif')
     no-repeat center center;
   width: 88px;
   height: 100px;

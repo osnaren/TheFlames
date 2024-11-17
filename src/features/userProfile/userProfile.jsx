@@ -1,7 +1,7 @@
-import "./userProfile.scss";
-import { useHistory } from "react-router-dom";
-import { useEffect } from "react";
-import $ from "jquery";
+import './userProfile.scss';
+import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
+import $ from 'jquery';
 
 export default function UserProfile() {
   return (

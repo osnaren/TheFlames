@@ -63,7 +63,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      content: "";
+      content: '';
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -94,7 +94,7 @@
         flex-direction: column;
         --animate-delay: 1.5s;
         .content__text {
-          font-family: "Bungee Spice", cursive;
+          font-family: 'Bungee Spice', cursive;
         }
       }
       .content__arrow {
@@ -104,13 +104,13 @@
       }
     }
     .lobyMain__left__container {
-      background-image: url("/src/assets/polygons2.jpg");
+      background-image: url('/src/assets/polygons2.jpg');
       .left__arrow {
         right: 5px;
       }
     }
     .lobyMain__right__container {
-      background-image: url("/src/assets/polygons1.jpg");
+      background-image: url('/src/assets/polygons1.jpg');
       .right__arrow {
         left: 5px;
         transform: scaleX(-1) !important;
