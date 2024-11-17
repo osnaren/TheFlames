@@ -13,17 +13,12 @@ name = "javascript"
 
   [analyzers.meta]
   module_system = "es-modules"
-  plugins = [
-    "react",
-    "eslint-plugin-react"
-  ]
+  plugins = ["react"]
   environment = [
     "nodejs",
     "browser",
     "vitest"
   ]
-  skip_doc_coverage = ["class-expression", "method-definition"]
-  cyclomatic_complexity_threshold = "high"
   style_guide = "airbnb"
 
 [[transformers]]
