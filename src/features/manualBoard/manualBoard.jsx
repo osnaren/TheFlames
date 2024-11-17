@@ -96,7 +96,7 @@ function chalkboard() {
         }
       }
     },
-    false
+    false,
   );
   document.addEventListener(
     "touchstart",
@@ -110,14 +110,14 @@ function chalkboard() {
       yLast = mouseY;
       draw(mouseX + 1, mouseY + 1);
     },
-    false
+    false,
   );
   document.addEventListener(
     "touchend",
     function (evt) {
       mouseD = false;
     },
-    false
+    false,
   );
   $("#chalkboard").css("cursor", "none");
   ctx.fillStyle = "rgba(255,255,255,0.5)";
@@ -193,7 +193,7 @@ function chalkboard() {
     // Chalk Effect
     var length = Math.round(
       Math.sqrt(Math.pow(x - xLast, 2) + Math.pow(y - yLast, 2)) /
-        (5 / brushDiameter)
+        (5 / brushDiameter),
     );
     var xUnit = (x - xLast) / length;
     var yUnit = (y - yLast) / length;
@@ -214,7 +214,7 @@ function chalkboard() {
       x - 0.5 * eraserWidth,
       y - 0.5 * eraserHeight,
       eraserWidth,
-      eraserHeight
+      eraserHeight,
     );
   }
 
@@ -222,7 +222,7 @@ function chalkboard() {
     setTimeout(function () {
       var win = window.open();
       $(win.document.body).html(
-        '<img src="' + ctximage + '" name="chalkboard.png">'
+        '<img src="' + ctximage + '" name="chalkboard.png">',
       );
     }, 500);
   }
