@@ -1,1 +1,16 @@
 version = 1
+
+exclude_patterns = [
+  "bin/**",
+  "**/node_modules/",
+  "js/**/*.min.js"
+]
+
+# Configuration for JavaScript/TypeScript analyzer
+[[analyzers]]
+name = "javascript"
+enabled = true
+
+  [analyzers.meta]
+  runtime_version = "nodejs14"
+  project_type = "react"
