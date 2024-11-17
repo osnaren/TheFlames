@@ -973,8 +973,14 @@ button:focus {
   height: 160px;
   z-index: 2;
   background-color: #fff;
-  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff,
-    0 0 70px #fff, 0 0 80px #fff, 0 0 100px #ff1177;
+  box-shadow:
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 30px #fff,
+    0 0 40px #fff,
+    0 0 70px #fff,
+    0 0 80px #fff,
+    0 0 100px #ff1177;
   -webkit-animation: rotate 5s ease-in-out infinite;
   animation: rotate 5s ease-in-out infinite;
 }
