@@ -1,13 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import react from 'eslint-plugin-react';
+import { FlatCompat } from '@eslint/eslintrc';
+import js from '@eslint/js';
+import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import typescriptParser from '@typescript-eslint/parser';
+import importPlugin from 'eslint-plugin-import';
 import prettier from 'eslint-plugin-prettier';
+import react from 'eslint-plugin-react';
 import globals from 'globals';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import js from '@eslint/js';
-import { FlatCompat } from '@eslint/eslintrc';
-import importPlugin from 'eslint-plugin-import';
-// import jsconfig from './jsconfig.json' assert { type: 'json' };
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,14 +25,16 @@ export default [
     'airbnb/hooks',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended'
   ),
   {
-    files: ['**/*.{js,mjs,cjs,jsx}'],
+    files: ['**/*.{js,mjs,cjs,jsx,ts,tsx}'],
     plugins: {
       react,
       prettier,
       import: importPlugin,
+      '@typescript-eslint': typescriptEslint,
     },
 
     languageOptions: {
@@ -42,6 +45,7 @@ export default [
 
       ecmaVersion: 'latest',
       sourceType: 'module',
+      parser: typescriptParser,
 
       parserOptions: {
         ecmaFeatures: {
@@ -57,18 +61,26 @@ export default [
       'import/resolver': {
         alias: {
           map: [
+            ['@', './'],
+            ['@src', './src'],
             ['@os/theflames-src', './src'],
             ['@assets', './src/assets'],
             ['@styles', './src/styles'],
             ['@components', './src/components'],
             ['@features', './src/features'],
-            ['@reusables', './src/reusables'],
+            ['@lib', './src/lib'],
+            ['@hooks', './src/lib/hooks'],
+            ['@services', './src/lib/services'],
+            ['@constants', './src/lib/constants'],
+            ['@utils', './src/lib/utils'],
             ['@utilities', './src/utilities'],
+            ['@pages', './src/pages'],
+            ['@types', './src/types'],
           ],
           extensions: ['.js', '.jsx', '.ts', '.tsx'],
         },
         typescript: {
-          project: './jsconfig.json',
+          project: './tsconfig.json',
         },
       },
     },
@@ -79,8 +91,21 @@ export default [
       'react/jsx-props-no-spreading': 'off',
       'import/prefer-default-export': 'off',
       'no-console': 'warn',
-      'no-unused-vars': 'warn',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'warn',
       'no-underscore-dangle': ['error', { allow: ['__dirname', '__filename'] }],
+      'import/extensions': [
+        'error',
+        'ignorePackages',
+        {
+          js: 'never',
+          jsx: 'never',
+          ts: 'never',
+          tsx: 'never',
+        },
+      ],
+      // Fix JSX in TSX files warning
+      'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }],
     },
   },
 ];

@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@src/*": ["./src/*"],
+      "@os/theflames-src/*": ["./src/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@components/*": ["./src/components/*"],
+      "@features/*": ["./src/features/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@hooks/*": ["./src/lib/hooks/*"],
+      "@services/*": ["./src/lib/services/*"],
+      "@constants/*": ["./src/lib/constants/*"],
+      "@utils/*": ["./src/lib/utils/*"],
+      "@utilities/*": ["./src/utilities/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@types/*": ["./src/types/*"]
+    }
+  },
+  "include": ["src", "vite.config.ts", "eslint.config.js"],
+  "exclude": ["node_modules", "**/node_modules/*"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
