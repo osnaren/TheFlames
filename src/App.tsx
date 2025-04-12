@@ -2,7 +2,7 @@ import 'animate.css';
 import React, { Suspense } from 'react';
 import { isMobile } from 'react-device-detect';
 import { Toaster } from 'react-hot-toast';
-import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.scss';
 import { MobileViewError } from './pages';
 
@@ -36,7 +36,7 @@ function App(): JSX.Element {
       <div className="App">
         <Routes>
           {/* Home route redirects to loby */}
-          <Route path="/" element={<Navigate to="/loby" replace />} />
+          {/* <Route path="/" element={<Navigate to="/loby" replace />} /> */}
 
           {/* Add a dedicated route for preloader if needed */}
           <Route path="/loading" element={<PreLoader />} />

@@ -89,6 +89,7 @@ export default [
       'prettier/prettier': 'error',
       'react/react-in-jsx-scope': 'off',
       'react/jsx-props-no-spreading': 'off',
+      'react/function-component-definition': 'off',
       'import/prefer-default-export': 'off',
       'no-console': 'warn',
       'no-unused-vars': 'off',
