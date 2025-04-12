@@ -4,7 +4,7 @@ import Lottie from 'react-lottie';
 
 import TextField from '@mui/material/TextField';
 import animationData from '../../assets/searching.json';
-import reactNotify from '../../utils/notifyFunctions';
+import reactNotify from '../../utilities/toast/toast';
 
 import maleIcon from '../../assets/man-light.png';
 import femaleIcon from '../../assets/woman-light.png';

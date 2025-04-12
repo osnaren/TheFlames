@@ -1,13 +1,14 @@
 import './lobyMain.scss';
-import FlamesLogo from '../../reusables/flamesLogo/flamesLogo.jsx';
+import Lottie from 'react-lottie';
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import FlamesLogo from '../../reusables/flamesLogo/flamesLogo';
 import Footer from '../../reusables/footer/footer';
 import theText from '../../assets/theText.png';
 import flamesText from '../../assets/flamesText.png';
-import Lottie from 'react-lottie';
 import arrowData from '../../assets/nav.json';
 import machineData from '../../assets/machine.json';
 import writingData from '../../assets/writing.json';
-import $ from 'jquery';
 
 const defaultOptions = {
   loop: true,
@@ -17,12 +18,8 @@ const defaultOptions = {
   },
 };
 
-import { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { withRouter } from 'react-router';
-
 function LobyMain() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [showHeader, setShowHeader] = useState(false);
   const [showBody, setShowBody] = useState(false);
   setTimeout(() => {
@@ -35,7 +32,7 @@ function LobyMain() {
   const handleContentClick = (mode) => {
     document.getElementById('loby').classList.add('animate__loby');
     setTimeout(() => {
-      history.push(mode);
+      navigate(mode);
     }, 2100);
   };
   return (

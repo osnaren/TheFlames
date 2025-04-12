@@ -1,27 +1,34 @@
 import './flamesMain.scss';
 
 import { useEffect, useState, useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import $ from 'jquery';
-import Particles from 'react-particles';
-import { loadFull } from 'tsparticles';
+import Particles, { initParticlesEngine } from '@tsparticles/react';
+import { loadAll } from '@tsparticles/all';
 
 import GamePlay from '../gamePlay/gamePlay';
-import Footer from '../../reusables/footer/footer';
+import Footer from '@reusables/footer/footer';
 import FlamesLogo from '../../reusables/flamesLogo/flamesLogo';
 import FlamesText from '../../assets/theFlamesText.svg';
 import FooterWave from '../../assets/footerWave.svg';
+
 export default function FlamesMain() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [viewParticles, setViewParticles] = useState(true);
+  const [init, setInit] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       setViewParticles(true);
     }, 1000);
   }, []);
-  const particlesInit = useCallback(async (engine) => {
-    await loadFull(engine);
+
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadAll(engine);
+    }).then(() => {
+      setInit(true);
+    });
   }, []);
 
   return (
@@ -29,7 +36,7 @@ export default function FlamesMain() {
       <div className="flamesMain__container animate__animated animate__fadeIn">
         {viewParticles && (
           <>
-            {true && (
+            {init && (
               <Particles
                 id="tsparticles"
                 options={{
@@ -99,7 +106,6 @@ export default function FlamesMain() {
                   },
                   detectRetina: true,
                 }}
-                init={particlesInit}
               />
             )}
             <div className="header__border" />
@@ -108,10 +114,10 @@ export default function FlamesMain() {
                 className="flamesMain__container__header__icon"
                 role="button"
                 tabIndex={0}
-                onClick={() => history.push('/')}
+                onClick={() => navigate('/')}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
-                    history.push('/');
+                    navigate('/');
                   }
                 }}
               >

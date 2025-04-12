@@ -1,8 +1,8 @@
-import './animatedFlames.scss';
+import './AnimatedFlames.scss';
 import Lottie from 'react-lottie';
-import animationData from '../../assets/flames.json';
+import animationData from '@assets/flames.json';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function AnimatedFlames() {
   const [isPaused, setIsPaused] = useState(false);
@@ -13,14 +13,14 @@ export default function AnimatedFlames() {
 
   const defaultOptions = {
     loop: true,
-    animationData: animationData,
+    animationData,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
     },
   };
   return (
     <div id="loading-bubble" className="flame-animation">
-      <Lottie options={defaultOptions} height={250} width={250} isClickToPauseDisabled isPaused={isPaused}></Lottie>
+      <Lottie options={defaultOptions} height={250} width={250} isClickToPauseDisabled isPaused={isPaused} />
     </div>
   );
 }

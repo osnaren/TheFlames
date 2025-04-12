@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.scss';
 import 'animate.css';
 import toast, { Toaster } from 'react-hot-toast';
@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom/client';
 
 // Pages
 import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
-import PreLoader from './features/preloader/preLoader';
+import PreLoader from './components/PreLoader';
 import FlamesMain from './features/flamesMain/flamesMain';
 import MobileViewError from './features/mobileViewError/mobileViewError';
 import NotFound from './features/notFound/notFound';
@@ -23,14 +23,15 @@ function App() {
   }
   return (
     <Router forceRefresh>
+      <PreLoader />
       <div className="App">
-        <Switch>
+        <Routes>
           <Route path="/manual" component={ManualBoard} exact />
           <Route path="/flames" component={FlamesMain} exact />
           <Route path="/loby" component={LobyMain} exact />
-          <Route path="/" component={PreLoader} exact />
+          {/* <Route path="/" component={PreLoader} exact /> */}
           <Route path="*" component={NotFound} />
-        </Switch>
+        </Routes>
         <Toaster position="top-right" reverseOrder={false} />
       </div>
     </Router>

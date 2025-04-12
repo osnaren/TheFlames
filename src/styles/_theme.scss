@@ -1,0 +1,30 @@
+// _theme.scss
+
+:root {
+  // Branding Colors
+  --color-primary: #ffaa00; // Flame Orange
+  --color-accent: #ffd700; // Golden Yellow
+  --color-secondary: #ff4500; // Burnt Orange
+
+  // Neutral Colors for Light Mode
+  --color-bg-light: #f5f5f5;
+  --color-text-light: #212121;
+
+  // State Colors
+  --color-success: #00c851;
+  --color-error: #ff4444;
+  --color-info: #33b5e5;
+
+  // Transitions
+  --transition-speed: 0.3s;
+}
+
+[data-theme='dark'] {
+  // Neutral Colors for Dark Mode
+  --color-bg-light: #121212;
+  --color-text-light: #ededed;
+
+  // Slightly more saturated flame theme for dark mode
+  --color-primary: #ffb347;
+  --color-secondary: #ff6347;
+}

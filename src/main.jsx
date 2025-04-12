@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import './index.scss';
+import '@styles/index.scss';
+
+const App = React.lazy(() => import('./App'));
+const PreLoader = React.lazy(() => import('@components/PreLoader/index')); // Import PreLoader
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <React.Suspense fallback={<PreLoader />}>
+      <App />
+    </React.Suspense>
   </React.StrictMode>
 );

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+    "jsx": "react-jsx", // Use react-jsx for React 17+
+    "allowImportingTsExtensions": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "baseUrl": ".", // Add baseUrl for module resolution
+    "paths": {
+      "@os/theflames-src/*": ["./src/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@components/*": ["./src/components/*"],
+      "@features/*": ["./src/features/*"],
+      "@reusables/*": ["./src/reusables/*"],
+      "@utilities/*": ["./src/utilities/*"]
+    }
+  },
+  "exclude": ["node_modules", "**/node_modules/*"]
+}

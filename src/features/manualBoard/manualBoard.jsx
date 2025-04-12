@@ -1,6 +1,5 @@
 import './manualBoard.scss';
 import { useEffect, useState, createRef } from 'react';
-import { useHistory } from 'react-router-dom';
 import $ from 'jquery';
 import Lottie from 'react-lottie';
 import Footer from '../../reusables/footer/footer';
@@ -8,7 +7,7 @@ import animationData from '../../assets/duster.json';
 import animationData1 from '../../assets/download.json';
 import { useScreenshot } from 'use-react-screenshot';
 import TextField from '@mui/material/TextField';
-import reactNotify from '../../utils/notifyFunctions';
+import reactNotify from '../../utilities/toast/toast';
 import { BsBoxArrowDownLeft, BsBoxArrowUpRight, BsEraser } from 'react-icons/bs';
 import ToggleButton from '@mui/material/ToggleButton';
 import { MdOutlineEdit, MdOutlineEditOff } from 'react-icons/md';
