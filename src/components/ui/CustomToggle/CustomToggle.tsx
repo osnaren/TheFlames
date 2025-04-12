@@ -6,7 +6,7 @@ interface CustomToggleProps {
   defaultChecked?: boolean;
 }
 
-export function CustomToggle({ onChange, defaultChecked = false }: CustomToggleProps): JSX.Element {
+export default function CustomToggle({ onChange = () => {}, defaultChecked = false }: CustomToggleProps): JSX.Element {
   const [checked, setChecked] = useState<boolean>(defaultChecked);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {

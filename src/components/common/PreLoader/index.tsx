@@ -1,4 +1,4 @@
-import AnimatedFlames from '@reusables/AnimatedFlames/AnimatedFlames';
+import AnimatedFlames from '@components/ui/AnimatedFlames/AnimatedFlames';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles.scss';

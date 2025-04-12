@@ -1,3 +1,4 @@
+import FlamesLogo from '@components/ui/FlamesLogo/FlamesLogo';
 import { useEffect, useState } from 'react';
 import Lottie from 'react-lottie';
 import { useNavigate } from 'react-router-dom';
@@ -6,8 +7,7 @@ import machineData from '../../assets/machine.json';
 import arrowData from '../../assets/nav.json';
 import theText from '../../assets/theText.png';
 import writingData from '../../assets/writing.json';
-import FlamesLogo from '../../reusables/flamesLogo/flamesLogo';
-import './lobyMain.scss';
+import './LobyMain.scss';
 
 const defaultOptions = {
   loop: true,

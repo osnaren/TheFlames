@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
+  darkMode: ['class', '[data-theme="dark"]'],
   content: ['./src/**/*.{js,jsx,ts,tsx}', './index.html'],
-  // Use corePlugins to enable/disable specific Tailwind features if needed
-  corePlugins: {
-    preflight: false, // Disable Tailwind's base styles to prevent conflicts with your existing styles
-  },
+
   // Important: false - This ensures Tailwind doesn't override your custom styles with !important
   important: false,
   theme: {
@@ -28,3 +28,5 @@ export default {
   },
   plugins: [],
 };
+
+export default config;

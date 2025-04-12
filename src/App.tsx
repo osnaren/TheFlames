@@ -7,7 +7,7 @@ import './App.scss';
 import { MobileViewError } from './pages';
 
 // Lazy load components for better performance
-const PreLoader = React.lazy(() => import('./components/common/PreLoader'));
+const PreLoader = React.lazy(() => import('@components/common/PreLoader/index'));
 const FlamesMain = React.lazy(() => import('./pages/FlamesMain/FlamesMain'));
 const NotFound = React.lazy(() => import('./pages/NotFound/NotFound'));
 const ManualBoard = React.lazy(() => import('./pages/ManualBoard/ManualBoard'));

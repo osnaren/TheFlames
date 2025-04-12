@@ -6,10 +6,10 @@ import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Footer from '@components';
+import Footer from '@components/layout/Footer/Footer';
+import FlamesLogo from '@components/ui/FlamesLogo/FlamesLogo';
+import GamePlay from '@pages/GamePlay/GamePlay';
 import FlamesText from '../../assets/theFlamesText.svg';
-import FlamesLogo from '../../reusables/flamesLogo/flamesLogo';
-import GamePlay from '../gamePlay/gamePlay';
 
 export default function FlamesMain(): JSX.Element {
   const navigate = useNavigate();

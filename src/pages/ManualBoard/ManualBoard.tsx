@@ -1,3 +1,4 @@
+import { Footer } from '@components/index';
 import Popover from '@mui/material/Popover';
 import TextField from '@mui/material/TextField';
 import ToggleButton from '@mui/material/ToggleButton';
@@ -10,7 +11,6 @@ import reactNotify from '../../utilities/toast/toast';
 
 import animationData1 from '../../assets/download.json';
 import animationData from '../../assets/duster.json';
-import Footer from '../../reusables/footer/footer';
 
 const defaultOptions = {
   loop: true,
